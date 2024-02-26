@@ -1,0 +1,38 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Tarefa {
+  id        Int     @id @default(autoincrement())
+  descricao String
+  feito     Boolean @default(false)
+
+  TodoList   TodoList? @relation(fields: [todoListId], references: [id])
+  todoListId Int?
+}
+
+model Usuario {
+  usuarioId String     @id 
+  email     String     @unique
+  senha     String
+  TodoList  TodoList[]
+}
+
+model TodoList {
+  id               Int      @id @default(autoincrement())
+  tarefas          Tarefa[]
+  usuario          Usuario  @relation(fields: [usuarioUsuarioId], references: [usuarioId])
+  titulo           String
+  usuarioUsuarioId String
+}
