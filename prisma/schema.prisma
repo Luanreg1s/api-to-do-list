@@ -32,7 +32,7 @@ model Usuario {
 model TodoList {
   id               Int      @id @default(autoincrement())
   tarefas          Tarefa[]
-  usuario          Usuario  @relation(fields: [usuarioUsuarioId], references: [usuarioId])
+  usuario          Usuario?  @relation(fields: [usuarioUsuarioId], references: [usuarioId])
   titulo           String
   usuarioUsuarioId String
 }
