@@ -9,5 +9,6 @@ const porta = 3000;
 
 require('./routes/todoList')(app);
 require('./routes/autenticacao.js')(app);
+require('./routes/tarefas.js')(app);
 
 app.listen(porta, () => console.log(`Aplicacao escutando a porta ${porta}`))
