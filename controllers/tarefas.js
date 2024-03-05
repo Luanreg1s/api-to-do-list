@@ -32,4 +32,24 @@ exports.criarTarefa = async (req, res) => {
             res.status(400).json(e);
         }
     };
+
+    exports.atualizarTarefa = async (req, res) => {
+        var { feito } = req.body;
+        try {
+            var id = Number(req.params.id)
+            const tarefa = await prisma.tarefa.update({
+                where: { 
+                    id : id
+                },
+                data: {
+                    feito
+                },
+            });
+            res.status(200).json(tarefa);
+            return;
+        } catch (e){
+            res.status(400).json(e);
+            return;
+        }
+    }
     

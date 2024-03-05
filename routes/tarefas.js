@@ -18,5 +18,6 @@ module.exports = function (app) {
 
 
     app.post('/criar-tarefa', jsonParser, verificaToken, controllerTarefas.criarTarefa);
-    app.delete('/deletar-tarefa/:id', verificaToken, controllerTarefas.deletarTarefa);
+    app.delete('/deletar-tarefa/:id', controllerTarefas.deletarTarefa);
+    app.put('/atualizar-tarefa/:id', jsonParser, controllerTarefas.atualizarTarefa);
 }
