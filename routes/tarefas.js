@@ -17,7 +17,7 @@ module.exports = function (app) {
     });
 
 
-    app.post('/criar-tarefa', jsonParser, verificaToken, controllerTarefas.criarTarefa);
+    app.post('/criar-tarefa', jsonParser, controllerTarefas.criarTarefa);
     app.delete('/deletar-tarefa/:id', controllerTarefas.deletarTarefa);
     app.put('/atualizar-tarefa/:id', jsonParser, controllerTarefas.atualizarTarefa);
 }

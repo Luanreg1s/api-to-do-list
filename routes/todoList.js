@@ -17,7 +17,7 @@ module.exports = function (app) {
     });
 
 
-    app.post('/criar-todolist', jsonParser, verificaToken, controllertodoList.criartodoList);
+    app.post('/criar-todolist', jsonParser, controllertodoList.criartodoList);
     app.get('/listar-todolist', controllertodoList.listartodoList);
     app.delete('/deletar-todolist/:id', controllertodoList.deletartodoList);
 }

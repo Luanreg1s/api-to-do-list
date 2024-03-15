@@ -7,6 +7,6 @@ module.exports = function(app) {
     // create application/json parser
     var jsonParser = bodyParser.json();
 
-    app.post('/registrar-usuario',jsonParser, controllerAutenticacao.registrarUsuario);
+    app.post('/registrar-usuario',jsonParser, verificaToken, controllerAutenticacao.registrarUsuario);
     app.post('/login-usuario',jsonParser, controllerAutenticacao.loginUsuario);
 }
