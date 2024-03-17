@@ -2,7 +2,7 @@
 
 const controllertodoList = require('../controllers/todoList');
 var bodyParser = require('body-parser');
-const verificaToken = require('../config/autenticacaoConfig');
+
 
 
 module.exports = function (app) {
